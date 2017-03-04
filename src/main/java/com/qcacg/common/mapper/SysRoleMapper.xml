@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qcacg.common.dao.SysRoleMapper">
+	<select id="findByUserId" parameterType="java.lang.Integer" resultType="com.qcacg.common.entity.SysRole">
+		SELECT
+			r.id,
+			r.rolename
+		FROM
+			sys_role AS r,
+			sys_user AS u,
+			sys_user_role AS ur
+		WHERE
+			u.Id = ur.user_id
+		AND r.id = ur.role_id
+		AND u.Id = #{userId}
+	</select>
+	<select id="findRoleByUsername" parameterType="java.lang.String" resultType="com.qcacg.common.entity.SysRole">
+		SELECT
+			r.id,
+			r.rolename
+		FROM
+			sys_role AS r,
+			sys_user AS u,
+			sys_user_role AS ur
+		WHERE
+			u.Id = ur.user_id
+		AND r.id = ur.role_id
+		AND u.username = #{username}
+	</select>
+</mapper>

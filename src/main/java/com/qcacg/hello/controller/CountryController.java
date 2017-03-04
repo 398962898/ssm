@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ public class CountryController {
 	@Resource
 	private CountryService countryServiceImpl;
 
+	@RequiresAuthentication
 	@ResponseBody
 	@GetMapping("/list")
 	public PageInfo<Country> all(Country country, 

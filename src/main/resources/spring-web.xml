@@ -33,6 +33,13 @@
 	<context:component-scan base-package="com.qcacg.*.controller"/>
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
-	
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.apache.shiro.authz.AuthorizationException">redirect:/401</prop>
+				<prop key="java.lang.Exception">redirect:/500</prop>
+			</props>
+		</property>
+	</bean>
 	
 </beans>
