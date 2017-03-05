@@ -14,10 +14,10 @@ import com.qcacg.common.service.SysUserService;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
-	
+
 	@Resource
 	private SysUserMapper sysUserMapper;
-	
+
 	private static int amount = 10;
 
 	@Override
@@ -25,15 +25,15 @@ public class SysUserServiceImpl implements SysUserService {
 		SysUserExample example = new SysUserExample();
 		example.or().andUsernameEqualTo(username);
 		List<SysUser> list = sysUserMapper.selectByExample(example);
-		if(list!=null&&list.size()>0)
+		if (list != null && list.size() > 0)
 			return list.get(0);
 		return null;
 	}
 
 	@Override
 	public int insertSysUser(SysUser sysUser) {
-		sysUser.setPassword((new Md5Hash(sysUser.getPassword(),sysUser.getUsername(),amount)).toString());
+		sysUser.setPassword((new Md5Hash(sysUser.getPassword(), sysUser.getUsername(), amount)).toString());
 		return sysUserMapper.insertSelective(sysUser);
 	}
-	
+
 }

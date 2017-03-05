@@ -26,10 +26,8 @@ public class CountryController {
 	@ResponseBody
 	@GetMapping("/list")
 	public PageInfo<Country> all(Country country, 
-			@RequestParam(required = false, defaultValue = "1") int page,
-			@RequestParam(required = false, defaultValue = "10") int rows) {
-		List<Country> list = countryServiceImpl.findByCountry(country, page, rows);
-		PageInfo<Country> pageInfo = new PageInfo<Country>(list);
-		return pageInfo;
+			@RequestParam(required = false, defaultValue = "1") int pageNum,
+			@RequestParam(required = false, defaultValue = "10") int pageSize) {
+		return countryServiceImpl.findByCountry(country, pageNum, pageSize);
 	}
 }

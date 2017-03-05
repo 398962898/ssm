@@ -28,6 +28,7 @@ public class UserRealm extends AuthorizingRealm {
 	private SysUserService sysUserServiceImpl;
 	@Resource
 	private SysRoleService sysRoleServiceImpl;
+
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {
 		String username = (String) getAvailablePrincipal(arg0);
@@ -36,7 +37,7 @@ public class UserRealm extends AuthorizingRealm {
 		for (SysRole sysRole : sysRoleList) {
 			roleList.add(sysRole.getRolename());
 		}
-		SimpleAuthorizationInfo simpleAuthorizationInfo=new SimpleAuthorizationInfo();
+		SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
 		simpleAuthorizationInfo.addRoles(roleList);
 		return simpleAuthorizationInfo;
 	}
@@ -46,11 +47,11 @@ public class UserRealm extends AuthorizingRealm {
 		UsernamePasswordToken upToken = (UsernamePasswordToken) arg0;
 		String username = upToken.getUsername();
 		SysUser sysUser = sysUserServiceImpl.findSysUserByUsername(username);
-		if(sysUser == null){
+		if (sysUser == null) {
 			throw new UnknownAccountException("用户不存在！");
 		}
-		SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(username, sysUser.getPassword(), ByteSource.Util.bytes(username), getName());
-		
+		SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(username,
+				sysUser.getPassword(), ByteSource.Util.bytes(username), getName());
 		return simpleAuthenticationInfo;
 	}
 

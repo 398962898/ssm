@@ -33,6 +33,7 @@
 	<context:component-scan base-package="com.qcacg.*.controller"/>
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
+	<!-- 错误页面跳转 -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
@@ -41,5 +42,12 @@
 			</props>
 		</property>
 	</bean>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.qcacg.common.interceptor.SessionInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	
 </beans>

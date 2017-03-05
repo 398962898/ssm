@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +43,7 @@ public class SysUserController {
 		Subject subject = SecurityUtils.getSubject();
 		if(!subject.isAuthenticated()){
 			UsernamePasswordToken upToken = new UsernamePasswordToken(sysUser.getUsername(),sysUser.getPassword());
-			upToken.setRememberMe(false);
+			upToken.setRememberMe(true);
 			try {
 				subject.login(upToken);
 			} catch (AuthenticationException e) {
@@ -62,11 +65,13 @@ public class SysUserController {
 	}
 	@GetMapping("/print")
 	@ResponseBody
-	public Map<String,Object> print(){
+	public Map<String,Object> print(HttpServletRequest request){
+		Cookie[] cookies = request.getCookies();
 		Map<String,Object> map = new HashMap<String,Object>();
 		Subject subject = SecurityUtils.getSubject();
 		Object principal = subject.getPrincipal();
-		map.put("user", principal);
+		map.put("principal", principal);
+		map.put("cookies", cookies);
 		return map;
 	}
 }

@@ -1,30 +1,8 @@
 package com.qcacg.hello.dao;
 
 import com.qcacg.hello.entity.Country;
-import com.qcacg.hello.entity.CountryExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
-public interface CountryMapper {
-    int countByExample(CountryExample example);
+import tk.mybatis.mapper.common.Mapper;
 
-    int deleteByExample(CountryExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(Country record);
-
-    int insertSelective(Country record);
-
-    List<Country> selectByExample(CountryExample example);
-
-    Country selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Country record, @Param("example") CountryExample example);
-
-    int updateByExample(@Param("record") Country record, @Param("example") CountryExample example);
-
-    int updateByPrimaryKeySelective(Country record);
-
-    int updateByPrimaryKey(Country record);
+public interface CountryMapper extends Mapper<Country> {
 }
