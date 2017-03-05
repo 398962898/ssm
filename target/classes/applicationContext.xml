@@ -7,6 +7,7 @@
       xmlns:tx="http://www.springframework.org/schema/tx"
 	  xmlns:mvc="http://www.springframework.org/schema/mvc"
 	  xmlns:jee="http://www.springframework.org/schema/jee"
+	  xmlns:cache="http://www.springframework.org/schema/cache"
 		
       xsi:schemaLocation="
 	
@@ -27,6 +28,9 @@
       
       http://www.springframework.org/schema/jee
       http://www.springframework.org/schema/jee/spring-jee-4.3.xsd 
+      
+      http://www.springframework.org/schema/cache
+      http://www.springframework.org/schema/cache/spring-cache-4.3.xsd
         
       ">
 	
