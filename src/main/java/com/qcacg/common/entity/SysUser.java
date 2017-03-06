@@ -1,7 +1,14 @@
 package com.qcacg.common.entity;
 
-public class SysUser {
-    private Integer id;
+import java.io.Serializable;
+
+public class SysUser implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6266738740021553623L;
+
+	private Integer id;
 
     /**
     * 用户名

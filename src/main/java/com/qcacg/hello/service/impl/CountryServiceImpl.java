@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -18,6 +19,8 @@ public class CountryServiceImpl implements CountryService {
 
 	@Resource
 	private CountryMapper countryMapper;
+	
+	@Cacheable(value="countryCache")
 	@Override
 	public PageInfo<Country> findByCountry(Country country, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);

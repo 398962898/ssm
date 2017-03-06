@@ -33,7 +33,7 @@
 	</bean> 
 	-->
 	<!-- 使用ehcache作为缓存 
-	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"> 
+	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"> 
 		<property name="cacheManagerConfigFile" value="classpath:ehcache_shiro.xml" /> 
 	</bean> 
 	-->
@@ -66,7 +66,7 @@
 	</bean>
 	
 	<!-- 使用redis作为缓存 -->
-	<bean id="cacheManager" class="org.crazycake.shiro.RedisCacheManager">
+	<bean id="shiroCacheManager" class="org.crazycake.shiro.RedisCacheManager">
 		<property name="redisManager" ref="redisManager" />
 	</bean>
 	
@@ -94,7 +94,7 @@
 	<!-- 安全管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="sessionManager" ref="sessionManager"></property>
-		<property name="cacheManager" ref="cacheManager"></property>
+		<property name="cacheManager" ref="shiroCacheManager"></property>
 		<property name="authenticator" ref="authenticator"></property>
 		<property name="realms">
 			<list>

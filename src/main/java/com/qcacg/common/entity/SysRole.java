@@ -1,7 +1,14 @@
 package com.qcacg.common.entity;
 
-public class SysRole {
-    private Integer id;
+import java.io.Serializable;
+
+public class SysRole implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5610396887125248412L;
+
+	private Integer id;
 
     private String rolename;
 

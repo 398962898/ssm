@@ -1,7 +1,14 @@
 package com.qcacg.hello.entity;
 
-public class Country {
+import java.io.Serializable;
+
+public class Country implements Serializable{
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5872007250074767267L;
+
+	/**
     * 主键
     */
     private Integer id;
