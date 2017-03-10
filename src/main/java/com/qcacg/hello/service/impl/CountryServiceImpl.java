@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class CountryServiceImpl implements CountryService {
 	@Resource
 	private CountryMapper countryMapper;
 	
-	@Cacheable(value="countryCache")
+	@Cacheable(cacheNames="countryCache")
 	@Override
 	public PageInfo<Country> findByCountry(Country country, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);

@@ -1,7 +1,5 @@
 package com.qcacg.hello.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.apache.shiro.authz.annotation.RequiresAuthentication;

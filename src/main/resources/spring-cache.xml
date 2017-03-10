@@ -30,16 +30,15 @@
         
       ">
 
-	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
 		<property name="configLocation" value="classpath:ehcache-setting.xml"></property>
 	</bean>
 	
-	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-		<property name="cacheManager" ref="ehcache"></property>
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcacheManager"></property>
 	</bean>
-	
-	<!-- 启用缓存注解功能 -->
-	<cache:annotation-driven cache-manager="ehcacheManager" />
 
+	<!-- 启用缓存注解功能 -->
+	<cache:annotation-driven/>
 
 </beans>

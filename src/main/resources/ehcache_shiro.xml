@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" name="shiroEhCahche">
+<ehcache 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" 
+	name="shiroEhCahche">
 
 	<diskStore path="D:/cache/" />
 
 	<!-- 默认缓存 -->
-	<defaultCache maxElementsInMemory="1000" eternal="false"
-		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="false" />
+	<defaultCache 
+		maxElementsInMemory="1000" 
+		eternal="false"
+		timeToIdleSeconds="120" 
+		timeToLiveSeconds="120" 
+		overflowToDisk="false" />
 
 	<!-- 用户缓存 -->
-	<cache name="shiroCache" maxElementsInMemory="1000" eternal="false"
-		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="false"
+	<cache 
+		name="shiroCache" 
+		maxElementsInMemory="1000" 
+		eternal="false"
+		timeToIdleSeconds="120" 
+		timeToLiveSeconds="120" 
+		overflowToDisk="false"
 		memoryStoreEvictionPolicy="LRU" />
 
 </ehcache>
