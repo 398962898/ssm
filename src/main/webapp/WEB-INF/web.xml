@@ -68,21 +68,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!--ehcache 页面缓存过滤器 
-	<filter>
-		<filter-name>PageCachingFilter</filter-name>
-		<filter-class>net.sf.ehcache.constructs.web.filter.SimplePageCachingFilter</filter-class>
-		<init-param>
-			<param-name>cacheName</param-name>
-			<param-value>SimplePageCachingFilter</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>PageCachingFilter</filter-name>
-		<url-pattern>/pageCache</url-pattern>
-	</filter-mapping>
-	-->
-	
+
 	<!-- shiro过虑器，DelegatingFilterProxy通过代理模式将spring容器中的bean和filter关联起来 -->
 	<filter>
 		<filter-name>shiroFilter</filter-name>
